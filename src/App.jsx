@@ -2,9 +2,53 @@ function App() {
   return (
     <>
       <div className="grid grid-cols-[540px] justify-center items-center gap-y-6 mt-24">
-        <div className="header">
+        <div className="header flex justify-between items-end">
           <div className="title text-current-num-first">calc</div>
-          <div className="toggle-button"></div>
+          <div className="toggle-button flex items-end gap-x-6">
+            <div className=" text-xs text-current-num-first">THEME</div>
+            <div className="grid grid-cols-[24px,24px,24px] text-center">
+              <label
+                htmlFor="theme1"
+                className="text-xs text-current-num-first"
+              >
+                1
+              </label>
+              <label
+                htmlFor="theme2"
+                className="text-xs text-current-num-first"
+              >
+                2
+              </label>
+              <label
+                htmlFor="theme3"
+                className="text-xs text-current-num-first"
+              >
+                3
+              </label>
+              <input
+                type="radio"
+                id="theme1"
+                name="theme"
+                defaultChecked
+                className="appearance-none"
+              />
+              <input
+                type="radio"
+                id="theme2"
+                name="theme"
+                className="appearance-none"
+              />
+              <input
+                type="radio"
+                id="theme3"
+                name="theme"
+                className="appearance-none"
+              />
+              <div className="slider col-span-3 bg-keypad-first w-full h-[26px] rounded-3xl">
+                <div className="w-4 h-4 bg-toggle-first hover:bg-toggle-hover-first rounded-full mt-[5px] ml-1"></div>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="output bg-screen-first px-8 py-6 w-full text-right rounded-lg">
           <div className="previous-operand"></div>
