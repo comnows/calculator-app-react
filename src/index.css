@@ -19,6 +19,48 @@
 
         --color-key-first: 221deg 14% 31%;
         --color-num-first: 0deg 0% 100%;
+        --color-delete-text-first: 0deg 0% 100%;
+        --color-result-text-first: 0deg 0% 100%;
+
+
+
+        --color-background-main-light-gray: 0deg 0% 90%;
+        --color-background-keypad-light-gray: 0deg 5% 81%;
+        --color-background-screen-light-gray: 0deg 0% 93%;
+
+        --color-background-delete-key-light-gray: 185deg 42% 37%;
+        --color-shadow-delete-key-light-gray: 185deg 58% 25%;
+
+        --color-toggle-light-gray: 25deg 98% 40%;
+        --color-shadow-result-key-light-gray: 25deg 99% 27%;
+
+        --color-background-key-light-gray: 45deg 7% 89%;
+        --color-shadow-key-light-gray: 35deg 11% 61%;
+
+        --color-key-light-gray: 60deg 10% 19%;
+        --color-num-light-gray: 60deg 10% 19%;
+        --color-delete-text-light-gray: 0deg 0% 100%;
+        --color-result-text-light-gray: 0deg 0% 100%;
+
+
+
+        --color-background-main-dark-violet: 268deg 75% 9%;
+        --color-background-keypad-dark-violet: 268deg 71% 12%;
+        --color-background-screen-dark-violet: 268deg 71% 12%;
+
+        --color-background-delete-key-dark-violet: 281deg 89% 26%;
+        --color-shadow-delete-key-dark-violet: 285deg 91% 52%;
+
+        --color-toggle-dark-violet: 176deg 100% 44%;
+        --color-shadow-result-key-dark-violet: 177deg 92% 70%;
+
+        --color-background-key-dark-violet: 268deg 47% 21%;
+        --color-shadow-key-dark-violet: 290deg 70% 36%;
+
+        --color-key-dark-violet: 52deg 100% 62%;
+        --color-num-dark-violet: 52deg 100% 62%;
+        --color-delete-text-dark-violet: 0deg 0% 100%;
+        --color-result-text-dark-violet: 198deg 20% 13%;
     }
 
     body {

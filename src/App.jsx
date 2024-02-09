@@ -4,7 +4,7 @@ import ThemeButton from "./components/ThemeButton";
 function App() {
   const [selectTheme, setTheme] = useState(0);
 
-  const themes = ["first", "second", "third"];
+  const themes = ["first", "light-gray", "dark-violet"];
 
   function ChangeTheme() {
     const newThemeIndex = (selectTheme + 1) % themes.length;
@@ -35,7 +35,7 @@ function App() {
           <button className="text-key-num-first bg-key-first hover:bg-key-hover-first rounded-lg shadow-key-shadow-first pt-2 pb-1 transition active:translate-y-1 active:shadow-none">
             9
           </button>
-          <button className="text-current-num-first bg-delete-key-first hover:bg-delete-key-hover-first rounded-lg shadow-delete-key-shadow-first pt-2 pb-1 transition active:translate-y-1 active:shadow-none">
+          <button className="text-delete-text-first bg-delete-key-first hover:bg-delete-key-hover-first rounded-lg shadow-delete-key-shadow-first pt-2 pb-1 transition active:translate-y-1 active:shadow-none">
             DEL
           </button>
           <button className="text-key-num-first bg-key-first hover:bg-key-hover-first rounded-lg shadow-key-shadow-first pt-2 pb-1 transition active:translate-y-1 active:shadow-none">
@@ -74,10 +74,10 @@ function App() {
           <button className="text-key-num-first bg-key-first hover:bg-key-hover-first rounded-lg shadow-key-shadow-first pt-2 pb-1 transition active:translate-y-1 active:shadow-none">
             x
           </button>
-          <button className="col-span-2 text-current-num-first bg-delete-key-first hover:bg-delete-key-hover-first rounded-lg shadow-delete-key-shadow-first pt-2 pb-1 transition active:translate-y-1 active:shadow-none">
+          <button className="col-span-2 text-delete-text-first bg-delete-key-first hover:bg-delete-key-hover-first rounded-lg shadow-delete-key-shadow-first pt-2 pb-1 transition active:translate-y-1 active:shadow-none">
             RESET
           </button>
-          <button className="col-span-2 text-current-num-first bg-toggle-first hover:bg-toggle-hover-first rounded-lg shadow-result-key-shadow-first pt-2 pb-1 transition active:translate-y-1 active:shadow-none">
+          <button className="col-span-2 text-result-text-first bg-toggle-first hover:bg-toggle-hover-first rounded-lg shadow-result-key-shadow-first pt-2 pb-1 transition active:translate-y-1 active:shadow-none">
             =
           </button>
         </div>
