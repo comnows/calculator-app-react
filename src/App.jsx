@@ -1,14 +1,37 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import ThemeButton from "./components/ThemeButton";
 
 function App() {
   const [selectTheme, setTheme] = useState(0);
+  const toggleRef = useRef(null);
 
   const themes = ["first", "light-gray", "dark-violet"];
 
   function ChangeTheme() {
     const newThemeIndex = (selectTheme + 1) % themes.length;
     setTheme(newThemeIndex);
+    MoveToggle(newThemeIndex);
+  }
+
+  function ChangeThemeTo(index) {
+    setTheme(index);
+    MoveToggle(index);
+  }
+
+  function MoveToggle(themeIndex) {
+    if (themeIndex === 0) {
+      const toggle = toggleRef.current;
+      toggle.style.left = "4px";
+      toggle.style.right = "52px";
+    } else if (themeIndex === 1) {
+      const toggle = toggleRef.current;
+      toggle.style.left = "28px";
+      toggle.style.right = "28px";
+    } else if (themeIndex === 2) {
+      const toggle = toggleRef.current;
+      toggle.style.left = "52px";
+      toggle.style.right = "4px";
+    }
   }
 
   return (
@@ -18,7 +41,9 @@ function App() {
           <div className="title text-current-num-first">calc</div>
           <ThemeButton
             selectedTheme={`${themes[selectTheme]}`}
-            onClick={ChangeTheme}
+            onThemeSelect={ChangeThemeTo}
+            onToggleClick={ChangeTheme}
+            toggleRef={toggleRef}
           />
         </div>
         <div className="output bg-screen-first px-8 py-6 w-full text-right rounded-lg">

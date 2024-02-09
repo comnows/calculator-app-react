@@ -1,51 +1,38 @@
-function ThemeButton({ selectedTheme, onClick }) {
+function ThemeButton({
+  selectedTheme,
+  onThemeSelect,
+  onToggleClick,
+  toggleRef,
+}) {
   return (
     <div className="toggle-button flex items-end gap-x-6">
       <div className={`text-xs text-current-num-${selectedTheme}`}>THEME</div>
-      <div className="grid grid-cols-[24px,24px,24px] text-center">
-        <label
-          htmlFor="theme1"
+      <div className="grid grid-cols-[24px,24px,24px] gap-y-[4px] text-center">
+        <button
           className={`text-xs text-current-num-${selectedTheme}`}
+          onClick={() => onThemeSelect(0)}
         >
           1
-        </label>
-        <label
-          htmlFor="theme2"
+        </button>
+        <button
           className={`text-xs text-current-num-${selectedTheme}`}
+          onClick={() => onThemeSelect(1)}
         >
           2
-        </label>
-        <label
-          htmlFor="theme3"
+        </button>
+        <button
           className={`text-xs text-current-num-${selectedTheme}`}
+          onClick={() => onThemeSelect(2)}
         >
           3
-        </label>
-        <input
-          type="radio"
-          id="theme1"
-          name="theme"
-          defaultChecked
-          className="appearance-none"
-        />
-        <input
-          type="radio"
-          id="theme2"
-          name="theme"
-          className="appearance-none"
-        />
-        <input
-          type="radio"
-          id="theme3"
-          name="theme"
-          className="appearance-none"
-        />
+        </button>
         <div
-          className={`slider col-span-3 bg-keypad-${selectedTheme} w-full h-[26px] rounded-3xl`}
-          onClick={onClick}
+          className={`relative col-span-3 bg-keypad-${selectedTheme} w-full h-[26px] rounded-3xl`}
+          onClick={onToggleClick}
         >
           <div
-            className={`w-4 h-4 bg-toggle-${selectedTheme} hover:bg-toggle-hover-${selectedTheme} rounded-full mt-[5px] ml-1`}
+            ref={toggleRef}
+            className={`absolute inset-y-[5px] left-[4px] right-[52px] bg-toggle-${selectedTheme} hover:bg-toggle-hover-${selectedTheme} rounded-full transition-all duration-200`}
           ></div>
         </div>
       </div>
