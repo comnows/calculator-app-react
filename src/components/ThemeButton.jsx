@@ -32,7 +32,7 @@ function ThemeButton({
         >
           <div
             ref={toggleRef}
-            className={`absolute inset-y-[5px] left-[4px] right-[52px] bg-toggle-${selectedTheme} hover:bg-toggle-hover-${selectedTheme} rounded-full transition-all duration-200`}
+            className={`absolute w-4 h-4 mt-[5px] ml-1 bg-toggle-${selectedTheme} hover:bg-toggle-hover-${selectedTheme} rounded-full transition-all duration-200`}
           ></div>
         </div>
       </div>

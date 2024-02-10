@@ -21,16 +21,13 @@ function App() {
   function MoveToggle(themeIndex) {
     if (themeIndex === 0) {
       const toggle = toggleRef.current;
-      toggle.style.left = "4px";
-      toggle.style.right = "52px";
+      toggle.style.transform = "translateX(0px)";
     } else if (themeIndex === 1) {
       const toggle = toggleRef.current;
-      toggle.style.left = "28px";
-      toggle.style.right = "28px";
+      toggle.style.transform = "translateX(24px)";
     } else if (themeIndex === 2) {
       const toggle = toggleRef.current;
-      toggle.style.left = "52px";
-      toggle.style.right = "4px";
+      toggle.style.transform = "translateX(48px)";
     }
   }
 
