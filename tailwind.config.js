@@ -77,6 +77,14 @@ export default {
       'key-shadow-first': '0px 4px key-shadow-first',
       'delete-key-shadow-first': '0px 4px delete-key-shadow-first',
       'result-key-shadow-first': '0px 4px result-key-shadow-first',
+
+      'key-shadow-light-gray': '0px 4px key-shadow-light-gray',
+      'delete-key-shadow-light-gray': '0px 4px delete-key-shadow-light-gray',
+      'result-key-shadow-light-gray': '0px 4px result-key-shadow-light-gray',
+
+      'key-shadow-dark-violet': '0px 4px key-shadow-dark-violet',
+      'delete-key-shadow-dark-violet': '0px 4px delete-key-shadow-dark-violet',
+      'result-key-shadow-dark-violet': '0px 4px result-key-shadow-dark-violet',
       'none': '0 0 #000000'
     },
     extend: {},
@@ -87,7 +95,7 @@ export default {
     'bg-keypad-light-gray',
 
     'bg-delete-key-light-gray',
-    'bg-delete-key-hover-light-gray',
+    'hover:bg-delete-key-hover-light-gray',
     'bg-delete-key-shadow-light-gray',
 
     'bg-toggle-light-gray',
@@ -95,13 +103,17 @@ export default {
     'bg-result-key-shadow-light-gray',
 
     'bg-key-light-gray',
-    'bg-key-hover-light-gray',
+    'hover:bg-key-hover-light-gray',
     'bg-key-shadow-light-gray',
 
     'text-key-num-light-gray',
     'text-current-num-light-gray',
     'text-delete-text-light-gray',
     'text-result-text-light-gray',
+
+    'shadow-key-shadow-light-gray',
+    'shadow-delete-key-shadow-light-gray',
+    'shadow-result-key-shadow-light-gray',
 
 
 
@@ -110,7 +122,7 @@ export default {
     'bg-keypad-dark-violet',
 
     'bg-delete-key-dark-violet',
-    'bg-delete-key-hover-dark-violet',
+    'hover:bg-delete-key-hover-dark-violet',
     'bg-delete-key-shadow-dark-violet',
 
     'bg-toggle-dark-violet',
@@ -118,13 +130,17 @@ export default {
     'bg-result-key-shadow-dark-violet',
 
     'bg-key-dark-violet',
-    'bg-key-hover-dark-violet',
+    'hover:bg-key-hover-dark-violet',
     'bg-key-shadow-dark-violet',
 
     'text-key-num-dark-violet',
     'text-current-num-dark-violet',
     'text-delete-text-dark-violet',
     'text-result-text-dark-violet',
+    
+    'shadow-key-shadow-dark-violet',
+    'shadow-delete-key-shadow-dark-violet',
+    'shadow-result-key-shadow-dark-violet',
   ],
   plugins: [],
 }
