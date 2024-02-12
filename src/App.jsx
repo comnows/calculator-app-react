@@ -126,7 +126,7 @@ function App() {
           currentOperand: "0",
         };
       case ACTIONS.RESET:
-        return {};
+        return defaultState;
       case ACTIONS.EVALUATE:
         if (state.operation == null) {
           return state;
@@ -269,7 +269,10 @@ function App() {
             operation="*"
             dispatch={dispatch}
           />
-          <button className="col-span-2 text-delete-text-dark-blue bg-delete-key-dark-blue hover:bg-delete-key-hover-dark-blue rounded-lg shadow-delete-key-shadow-dark-blue pt-2 pb-1 transition active:translate-y-1 active:shadow-none">
+          <button
+            className="col-span-2 text-delete-text-dark-blue bg-delete-key-dark-blue hover:bg-delete-key-hover-dark-blue rounded-lg shadow-delete-key-shadow-dark-blue pt-2 pb-1 transition active:translate-y-1 active:shadow-none"
+            onClick={() => dispatch({ type: ACTIONS.RESET })}
+          >
             RESET
           </button>
           <button
