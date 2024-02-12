@@ -87,7 +87,21 @@ function App() {
           currentOperand: `${state.currentOperand || ""}${payload.digit}`,
         };
       case ACTIONS.REMOVE_DIGIT:
-        return;
+        if (state.overwrite) {
+          return defaultState;
+        }
+
+        if (state.currentOperand.length === 1) {
+          return {
+            ...state,
+            currentOperand: "0",
+          };
+        }
+
+        return {
+          ...state,
+          currentOperand: state.currentOperand.slice(0, -1),
+        };
       case ACTIONS.CHOOSE_OPERATION:
         if (state.overwrite) {
           return {
@@ -206,7 +220,10 @@ function App() {
             digit="9"
             dispatch={dispatch}
           />
-          <button className="text-delete-text-dark-blue bg-delete-key-dark-blue hover:bg-delete-key-hover-dark-blue rounded-lg shadow-delete-key-shadow-dark-blue pt-2 pb-1 transition active:translate-y-1 active:shadow-none">
+          <button
+            className="text-delete-text-dark-blue bg-delete-key-dark-blue hover:bg-delete-key-hover-dark-blue rounded-lg shadow-delete-key-shadow-dark-blue pt-2 pb-1 transition active:translate-y-1 active:shadow-none"
+            onClick={() => dispatch({ type: ACTIONS.REMOVE_DIGIT })}
+          >
             DEL
           </button>
           <DigitButton
