@@ -4,23 +4,23 @@
 
 @layer base {
     :root {
-        --color-background-main-first: 222deg 26% 31%;
-        --color-background-keypad-first: 223deg 31% 20%;
-        --color-background-screen-first: 224deg 36% 15%;
+        --color-background-main-dark-blue: 222deg 26% 31%;
+        --color-background-keypad-dark-blue: 223deg 31% 20%;
+        --color-background-screen-dark-blue: 224deg 36% 15%;
 
-        --color-background-delete-key-first: 225deg 21% 49%;
-        --color-shadow-delete-key-first: 224deg 28% 35%;
+        --color-background-delete-key-dark-blue: 225deg 21% 49%;
+        --color-shadow-delete-key-dark-blue: 224deg 28% 35%;
 
-        --color-toggle-first: 6deg 63% 50%;
-        --color-shadow-result-key-first: 6deg 70% 34%;
+        --color-toggle-dark-blue: 6deg 63% 50%;
+        --color-shadow-result-key-dark-blue: 6deg 70% 34%;
 
-        --color-background-key-first: 30deg 25% 89%;
-        --color-shadow-key-first: 28deg 16% 65%;
+        --color-background-key-dark-blue: 30deg 25% 89%;
+        --color-shadow-key-dark-blue: 28deg 16% 65%;
 
-        --color-key-first: 221deg 14% 31%;
-        --color-num-first: 0deg 0% 100%;
-        --color-delete-text-first: 0deg 0% 100%;
-        --color-result-text-first: 0deg 0% 100%;
+        --color-key-dark-blue: 221deg 14% 31%;
+        --color-num-dark-blue: 0deg 0% 100%;
+        --color-delete-text-dark-blue: 0deg 0% 100%;
+        --color-result-text-dark-blue: 0deg 0% 100%;
 
 
 
@@ -64,7 +64,7 @@
     }
 
     body {
-        @apply bg-main-first;
+        @apply bg-main-dark-blue;
         font-family: 'League Spartan', sans-serif;
         font-size: 32px;
     }

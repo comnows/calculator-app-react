@@ -6,26 +6,26 @@ export default {
   ],
   theme: {
     colors: {
-      'main-first': 'hsl(var(--color-background-main-first))',
-      'screen-first': 'hsl(var(--color-background-screen-first))',
-      'keypad-first': 'hsl(var(--color-background-keypad-first))',
+      'main-dark-blue': 'hsl(var(--color-background-main-dark-blue))',
+      'screen-dark-blue': 'hsl(var(--color-background-screen-dark-blue))',
+      'keypad-dark-blue': 'hsl(var(--color-background-keypad-dark-blue))',
 
-      'delete-key-first': 'hsl(var(--color-background-delete-key-first))',
-      'delete-key-hover-first': '#a2b2e3',
-      'delete-key-shadow-first': 'hsl(var(--color-shadow-delete-key-first))',
+      'delete-key-dark-blue': 'hsl(var(--color-background-delete-key-dark-blue))',
+      'delete-key-hover-dark-blue': '#a2b2e3',
+      'delete-key-shadow-dark-blue': 'hsl(var(--color-shadow-delete-key-dark-blue))',
 
-      'toggle-first': 'hsl(var(--color-toggle-first))',
-      'toggle-hover-first': '#f96c5b',
-      'result-key-shadow-first': 'hsl(var(--color-shadow-result-key-first))',
+      'toggle-dark-blue': 'hsl(var(--color-toggle-dark-blue))',
+      'toggle-hover-dark-blue': '#f96c5b',
+      'result-key-shadow-dark-blue': 'hsl(var(--color-shadow-result-key-dark-blue))',
 
-      'key-first': 'hsl(var(--color-background-key-first))',
-      'key-hover-first': '#ffffff',
-      'key-shadow-first': 'hsl(var(--color-shadow-key-first))',
+      'key-dark-blue': 'hsl(var(--color-background-key-dark-blue))',
+      'key-hover-dark-blue': '#ffffff',
+      'key-shadow-dark-blue': 'hsl(var(--color-shadow-key-dark-blue))',
 
-      'key-num-first': 'hsl(var(--color-key-first))',
-      'current-num-first': 'hsl(var(--color-num-first))',
-      'delete-text-first': 'hsl(var(--color-delete-text-first))',
-      'result-text-first': 'hsl(var(--color-result-text-first))',
+      'key-num-dark-blue': 'hsl(var(--color-key-dark-blue))',
+      'current-num-dark-blue': 'hsl(var(--color-num-dark-blue))',
+      'delete-text-dark-blue': 'hsl(var(--color-delete-text-dark-blue))',
+      'result-text-dark-blue': 'hsl(var(--color-result-text-dark-blue))',
 
 
 
@@ -74,9 +74,9 @@ export default {
       'result-text-dark-violet': 'hsl(var(--color-result-text-dark-violet))',
     },
     boxShadow: {
-      'key-shadow-first': '0px 4px key-shadow-first',
-      'delete-key-shadow-first': '0px 4px delete-key-shadow-first',
-      'result-key-shadow-first': '0px 4px result-key-shadow-first',
+      'key-shadow-dark-blue': '0px 4px key-shadow-dark-blue',
+      'delete-key-shadow-dark-blue': '0px 4px delete-key-shadow-dark-blue',
+      'result-key-shadow-dark-blue': '0px 4px result-key-shadow-dark-blue',
 
       'key-shadow-light-gray': '0px 4px key-shadow-light-gray',
       'delete-key-shadow-light-gray': '0px 4px delete-key-shadow-light-gray',
@@ -90,6 +90,33 @@ export default {
     extend: {},
   },
   safelist: [
+    'bg-main-dark-blue',
+    'bg-screen-dark-blue',
+    'bg-keypad-dark-blue',
+
+    'bg-delete-key-dark-blue',
+    'hover:bg-delete-key-hover-dark-blue',
+    'bg-delete-key-shadow-dark-blue',
+
+    'bg-toggle-dark-blue',
+    'hover:bg-toggle-hover-dark-blue',
+    'bg-result-key-shadow-dark-blue',
+
+    'bg-key-dark-blue',
+    'hover:bg-key-hover-dark-blue',
+    'bg-key-shadow-dark-blue',
+
+    'text-key-num-dark-blue',
+    'text-current-num-dark-blue',
+    'text-delete-text-dark-blue',
+    'text-result-text-dark-blue',
+
+    'shadow-key-shadow-dark-blue',
+    'shadow-delete-key-shadow-dark-blue',
+    'shadow-result-key-shadow-dark-blue',
+
+
+    
     'bg-main-light-gray',
     'bg-screen-light-gray',
     'bg-keypad-light-gray',
