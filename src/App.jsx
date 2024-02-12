@@ -1,4 +1,4 @@
-import { useState, useRef, useReducer } from "react";
+import { useState, useRef, useReducer, useEffect } from "react";
 import ThemeButton from "./components/ThemeButton";
 import DigitButton from "./components/DigitButton";
 import OperationButton from "./components/OperationButton";
@@ -6,11 +6,15 @@ import { formatOperand } from "./utilities/number";
 
 import { ACTIONS } from "./data/ACTIONS";
 
+const themes = ["dark-blue", "light-gray", "dark-violet"];
+
 function App() {
   const [selectTheme, setTheme] = useState(0);
   const toggleRef = useRef(null);
 
-  const themes = ["dark-blue", "light-gray", "dark-violet"];
+  useEffect(() => {
+    document.querySelector("body").setAttribute("class", themes[selectTheme]);
+  }, [selectTheme]);
 
   const defaultState = {
     currentOperand: "0",
@@ -189,7 +193,11 @@ function App() {
     <>
       <div className="grid grid-cols-[540px] justify-center items-center gap-y-6 mt-24">
         <div className="header flex justify-between items-end">
-          <div className="title text-current-num-dark-blue">calc</div>
+          <div
+            className={`title text-current-num-${themes[selectTheme]} transition-colors`}
+          >
+            calc
+          </div>
           <ThemeButton
             selectedTheme={`${themes[selectTheme]}`}
             onThemeSelect={ChangeThemeTo}
@@ -197,15 +205,23 @@ function App() {
             toggleRef={toggleRef}
           />
         </div>
-        <div className="output flex flex-col justify-center items-end bg-screen-dark-blue px-8 py-6 w-full min-h-[128px] text-right rounded-lg break-all">
-          <div className="previous-operand text-current-num-dark-blue text-lg">
+        <div
+          className={`output flex flex-col justify-center items-end bg-screen-${themes[selectTheme]} transition-colors px-8 py-6 w-full min-h-[128px] text-right rounded-lg break-all`}
+        >
+          <div
+            className={`previous-operand text-current-num-${themes[selectTheme]} transition-colors text-lg`}
+          >
             {formatOperand(previousOperand)} {operation}
           </div>
-          <div className="current-operand text-current-num-dark-blue">
+          <div
+            className={`current-operand text-current-num-${themes[selectTheme]} transition-colors`}
+          >
             {formatOperand(currentOperand)}
           </div>
         </div>
-        <div className="input-grid grid grid-cols-4 gap-x-6 gap-y-7 p-8 bg-keypad-dark-blue rounded-lg">
+        <div
+          className={`input-grid grid grid-cols-4 gap-x-6 gap-y-7 p-8 bg-keypad-${themes[selectTheme]} transition-colors rounded-lg`}
+        >
           <DigitButton
             selectedTheme={`${themes[selectTheme]}`}
             digit="7"
@@ -222,7 +238,7 @@ function App() {
             dispatch={dispatch}
           />
           <button
-            className="text-delete-text-dark-blue bg-delete-key-dark-blue hover:bg-delete-key-hover-dark-blue rounded-lg shadow-delete-key-shadow-dark-blue pt-2 pb-1 transition active:translate-y-1 active:shadow-none"
+            className={`text-delete-text-${themes[selectTheme]} bg-delete-key-${themes[selectTheme]} hover:bg-delete-key-hover-${themes[selectTheme]} rounded-lg shadow-delete-key-shadow-${themes[selectTheme]} pt-2 pb-1 transition active:translate-y-1 active:shadow-none`}
             onClick={() => dispatch({ type: ACTIONS.REMOVE_DIGIT })}
           >
             DEL
@@ -288,13 +304,13 @@ function App() {
             dispatch={dispatch}
           />
           <button
-            className="col-span-2 text-delete-text-dark-blue bg-delete-key-dark-blue hover:bg-delete-key-hover-dark-blue rounded-lg shadow-delete-key-shadow-dark-blue pt-2 pb-1 transition active:translate-y-1 active:shadow-none"
+            className={`col-span-2 text-delete-text-${themes[selectTheme]} bg-delete-key-${themes[selectTheme]} hover:bg-delete-key-hover-${themes[selectTheme]} rounded-lg shadow-delete-key-shadow-${themes[selectTheme]} pt-2 pb-1 transition active:translate-y-1 active:shadow-none`}
             onClick={() => dispatch({ type: ACTIONS.RESET })}
           >
             RESET
           </button>
           <button
-            className="col-span-2 text-result-text-dark-blue bg-toggle-dark-blue hover:bg-toggle-hover-dark-blue rounded-lg shadow-result-key-shadow-dark-blue pt-2 pb-1 transition active:translate-y-1 active:shadow-none"
+            className={`col-span-2 text-result-text-${themes[selectTheme]} bg-toggle-${themes[selectTheme]} hover:bg-toggle-hover-${themes[selectTheme]} rounded-lg shadow-result-key-shadow-${themes[selectTheme]} pt-2 pb-1 transition active:translate-y-1 active:shadow-none`}
             onClick={() => dispatch({ type: ACTIONS.EVALUATE })}
           >
             =
