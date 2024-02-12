@@ -2,6 +2,7 @@ import { useState, useRef, useReducer } from "react";
 import ThemeButton from "./components/ThemeButton";
 import DigitButton from "./components/DigitButton";
 import OperationButton from "./components/OperationButton";
+import { formatOperand } from "./utilities/number";
 
 import { ACTIONS } from "./data/ACTIONS";
 
@@ -198,10 +199,10 @@ function App() {
         </div>
         <div className="output flex flex-col justify-center items-end bg-screen-dark-blue px-8 py-6 w-full min-h-[128px] text-right rounded-lg break-all">
           <div className="previous-operand text-current-num-dark-blue text-lg">
-            {previousOperand} {operation}
+            {formatOperand(previousOperand)} {operation}
           </div>
           <div className="current-operand text-current-num-dark-blue">
-            {currentOperand}
+            {formatOperand(currentOperand)}
           </div>
         </div>
         <div className="input-grid grid grid-cols-4 gap-x-6 gap-y-7 p-8 bg-keypad-dark-blue rounded-lg">
