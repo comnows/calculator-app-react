@@ -49,6 +49,24 @@ function App() {
   function reducer(state, { type, payload }) {
     switch (type) {
       case ACTIONS.ADD_DIGIT:
+        if (state.overwrite) {
+          if (payload.digit === ".") {
+            return {
+              ...state,
+              previousOperand: null,
+              overwrite: false,
+              currentOperand: "0.",
+            };
+          }
+
+          return {
+            ...state,
+            previousOperand: null,
+            overwrite: false,
+            currentOperand: payload.digit,
+          };
+        }
+
         if (payload.digit === "0" && state.currentOperand === "0") {
           return state;
         }
@@ -71,6 +89,16 @@ function App() {
       case ACTIONS.REMOVE_DIGIT:
         return;
       case ACTIONS.CHOOSE_OPERATION:
+        if (state.overwrite) {
+          return {
+            ...state,
+            previousOperand: state.currentOperand,
+            operation: payload.operation,
+            currentOperand: "0",
+            overwrite: false,
+          };
+        }
+
         if (state.currentOperand == null && state.previousOperand == null) {
           return state;
         }
@@ -99,6 +127,20 @@ function App() {
         };
       case ACTIONS.RESET:
         return {};
+      case ACTIONS.EVALUATE:
+        if (state.operation == null) {
+          return state;
+        }
+
+        return {
+          ...state,
+          currentOperand: evaluate(state),
+          previousOperand: `${
+            state.previousOperand ? state.previousOperand : ""
+          } ${state.operation ? state.operation : ""} ${state.currentOperand}`,
+          operation: null,
+          overwrite: true,
+        };
     }
   }
 
@@ -106,7 +148,7 @@ function App() {
     const prev = parseFloat(previousOperand);
     const current = parseFloat(currentOperand);
 
-    if (isNaN(prev) || isNaN(current)) return "";
+    if (isNaN(prev)) return currentOperand;
 
     let computation = "";
 
@@ -230,7 +272,10 @@ function App() {
           <button className="col-span-2 text-delete-text-dark-blue bg-delete-key-dark-blue hover:bg-delete-key-hover-dark-blue rounded-lg shadow-delete-key-shadow-dark-blue pt-2 pb-1 transition active:translate-y-1 active:shadow-none">
             RESET
           </button>
-          <button className="col-span-2 text-result-text-dark-blue bg-toggle-dark-blue hover:bg-toggle-hover-dark-blue rounded-lg shadow-result-key-shadow-dark-blue pt-2 pb-1 transition active:translate-y-1 active:shadow-none">
+          <button
+            className="col-span-2 text-result-text-dark-blue bg-toggle-dark-blue hover:bg-toggle-hover-dark-blue rounded-lg shadow-result-key-shadow-dark-blue pt-2 pb-1 transition active:translate-y-1 active:shadow-none"
+            onClick={() => dispatch({ type: ACTIONS.EVALUATE })}
+          >
             =
           </button>
         </div>
