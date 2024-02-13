@@ -5,8 +5,10 @@ function ThemeButton({
   toggleRef,
 }) {
   return (
-    <div className="toggle-button flex items-end gap-x-6">
-      <div className={`text-xs text-current-num-${selectedTheme}`}>THEME</div>
+    <div className="toggle-button flex items-center gap-x-6">
+      <div className={`text-xs text-current-num-${selectedTheme} mt-5`}>
+        THEME
+      </div>
       <div className="grid grid-cols-[24px,24px,24px] gap-y-[4px] text-center">
         <button
           className={`text-xs text-current-num-${selectedTheme}`}

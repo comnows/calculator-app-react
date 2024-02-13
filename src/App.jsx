@@ -191,10 +191,10 @@ function App() {
 
   return (
     <>
-      <div className="grid grid-cols-[540px] justify-center items-center gap-y-6 mt-24">
-        <div className="header flex justify-between items-end">
+      <div className="grid sm:grid-cols-[540px] sm:max-w-none max-w-[375px] grid-cols-1 justify-center items-center gap-y-6 mt-24 sm:mx-0 mx-auto sm:px-0 px-6">
+        <div className="header flex justify-between">
           <div
-            className={`title text-current-num-${themes[selectTheme]} transition-colors`}
+            className={`title text-current-num-${themes[selectTheme]} transition-colors mt-4`}
           >
             calc
           </div>
@@ -206,7 +206,7 @@ function App() {
           />
         </div>
         <div
-          className={`output flex flex-col justify-center items-end bg-screen-${themes[selectTheme]} transition-colors px-8 py-6 w-full min-h-[128px] text-right rounded-lg break-all`}
+          className={`output flex flex-col justify-center items-end bg-screen-${themes[selectTheme]} transition-colors sm:px-8 px-[26px] py-6 w-full sm:min-h-[128px] min-h-[88px] text-right rounded-lg break-all`}
         >
           <div
             className={`previous-operand text-current-num-${themes[selectTheme]} transition-colors text-lg`}
@@ -220,7 +220,7 @@ function App() {
           </div>
         </div>
         <div
-          className={`input-grid grid grid-cols-4 gap-x-6 gap-y-7 p-8 bg-keypad-${themes[selectTheme]} transition-colors rounded-lg`}
+          className={`input-grid grid grid-cols-4 sm:gap-x-6 sm:gap-y-7 gap-x-[13px] gap-y-[17px] sm:p-8 p-6 bg-keypad-${themes[selectTheme]} transition-colors rounded-lg`}
         >
           <DigitButton
             selectedTheme={`${themes[selectTheme]}`}
@@ -238,7 +238,7 @@ function App() {
             dispatch={dispatch}
           />
           <button
-            className={`text-delete-text-${themes[selectTheme]} bg-delete-key-${themes[selectTheme]} hover:bg-delete-key-hover-${themes[selectTheme]} rounded-lg shadow-delete-key-shadow-${themes[selectTheme]} pt-2 pb-1 transition active:translate-y-1 active:shadow-none`}
+            className={`text-delete-text-${themes[selectTheme]} sm:text-[32px] text-xl bg-delete-key-${themes[selectTheme]} hover:bg-delete-key-hover-${themes[selectTheme]} rounded-lg shadow-delete-key-shadow-${themes[selectTheme]} pt-2 pb-1 transition active:translate-y-1 active:shadow-none`}
             onClick={() => dispatch({ type: ACTIONS.REMOVE_DIGIT })}
           >
             DEL
@@ -304,7 +304,7 @@ function App() {
             dispatch={dispatch}
           />
           <button
-            className={`col-span-2 text-delete-text-${themes[selectTheme]} bg-delete-key-${themes[selectTheme]} hover:bg-delete-key-hover-${themes[selectTheme]} rounded-lg shadow-delete-key-shadow-${themes[selectTheme]} pt-2 pb-1 transition active:translate-y-1 active:shadow-none`}
+            className={`col-span-2 text-delete-text-${themes[selectTheme]} sm:text-[32px] text-xl bg-delete-key-${themes[selectTheme]} hover:bg-delete-key-hover-${themes[selectTheme]} rounded-lg shadow-delete-key-shadow-${themes[selectTheme]} pt-2 pb-1 transition active:translate-y-1 active:shadow-none`}
             onClick={() => dispatch({ type: ACTIONS.RESET })}
           >
             RESET
