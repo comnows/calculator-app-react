@@ -1,16 +1,14 @@
-import { useState, useRef, useReducer, useEffect } from "react";
+import { useState, useReducer, useEffect } from "react";
 import ThemeButton from "./components/ThemeButton";
 import DigitButton from "./components/DigitButton";
 import OperationButton from "./components/OperationButton";
-import { formatOperand } from "./utilities/number";
+import { formatOperand, evaluate } from "./utilities/number";
+import { themes } from "./utilities/theme";
 
 import { ACTIONS } from "./data/ACTIONS";
 
-const themes = ["dark-blue", "light-gray", "dark-violet"];
-
 function App() {
   const [selectTheme, setTheme] = useState(0);
-  const toggleRef = useRef(null);
 
   useEffect(() => {
     document.querySelector("body").setAttribute("class", themes[selectTheme]);
@@ -26,30 +24,6 @@ function App() {
     reducer,
     defaultState
   );
-
-  function ChangeTheme() {
-    const newThemeIndex = (selectTheme + 1) % themes.length;
-    setTheme(newThemeIndex);
-    MoveToggle(newThemeIndex);
-  }
-
-  function ChangeThemeTo(index) {
-    setTheme(index);
-    MoveToggle(index);
-  }
-
-  function MoveToggle(themeIndex) {
-    if (themeIndex === 0) {
-      const toggle = toggleRef.current;
-      toggle.style.transform = "translateX(0px)";
-    } else if (themeIndex === 1) {
-      const toggle = toggleRef.current;
-      toggle.style.transform = "translateX(24px)";
-    } else if (themeIndex === 2) {
-      const toggle = toggleRef.current;
-      toggle.style.transform = "translateX(48px)";
-    }
-  }
 
   function reducer(state, { type, payload }) {
     switch (type) {
@@ -154,39 +128,11 @@ function App() {
         return {
           ...state,
           currentOperand: evaluate(state),
-          previousOperand: `${
-            state.previousOperand ? state.previousOperand : ""
-          } ${state.operation ? state.operation : ""} ${state.currentOperand}`,
+          previousOperand: null,
           operation: null,
           overwrite: true,
         };
     }
-  }
-
-  function evaluate({ currentOperand, previousOperand, operation }) {
-    const prev = parseFloat(previousOperand);
-    const current = parseFloat(currentOperand);
-
-    if (isNaN(prev)) return currentOperand;
-
-    let computation = "";
-
-    switch (operation) {
-      case "+":
-        computation = prev + current;
-        break;
-      case "-":
-        computation = prev - current;
-        break;
-      case "*":
-        computation = prev * current;
-        break;
-      case "/":
-        computation = prev / current;
-        break;
-    }
-
-    return computation.toString();
   }
 
   return (
@@ -200,9 +146,8 @@ function App() {
           </div>
           <ThemeButton
             selectedTheme={`${themes[selectTheme]}`}
-            onThemeSelect={ChangeThemeTo}
-            onToggleClick={ChangeTheme}
-            toggleRef={toggleRef}
+            selectThemeIndex={selectTheme}
+            setTheme={setTheme}
           />
         </div>
         <div
